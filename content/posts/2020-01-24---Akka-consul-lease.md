@@ -1,7 +1,7 @@
 ---
 template: post
 title: Akka lease backed by consul
-slug: /posts/akka-consul-lease/
+slug: akka-consul-lease
 draft: false
 date: '2020-01-24T19:40:32.169Z'
 description: Akka lease implementation using consul as a backend for locks
@@ -36,4 +36,3 @@ The implementation maintains a consul session which has been configured with a T
 * extra safe guard for akka [cluster singleton and shards](https://doc.akka.io/docs/akka/current/typed/cluster-singleton.html#lease)
 * ensure some processes are executed on a single instance when deploying multiple instances, without the need to have an akka cluster. If using akka cluster a cluster singleton could be use to ensure this as well but that has the downside that all the processes which have to run on a single instance will always run on the same instance because all the singletons will always reside on the oldest node in the cluster (by using a lease for each process then the processes will run on the instance which has the lease, which is non deterministic) 
 
-#

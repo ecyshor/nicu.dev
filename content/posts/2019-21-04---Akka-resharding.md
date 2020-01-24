@@ -3,7 +3,7 @@ title: Akka sharding entity state handover
 date: "2019-04-21T22:40:32.169Z"
 template: "post"
 draft: false
-slug: "/posts/akka-resharding/"
+slug: "akka-resharding"
 category: "Software"
 tags:
   - "Akka"
