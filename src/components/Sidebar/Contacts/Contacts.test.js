@@ -1,3 +1,5 @@
+
+// @flow strict
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Contacts from './Contacts';
@@ -7,7 +9,10 @@ describe('Contacts', () => {
     contacts: {
       email: '#',
       twitter: '#',
-      github: '#'
+      vkontakte: '#',
+      github: '#',
+      rss: '#',
+      telegram: '#'
     }
   };
 
