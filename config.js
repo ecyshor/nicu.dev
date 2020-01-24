@@ -30,20 +30,20 @@ module.exports = {
     bio: 'Software engineer.',
     contacts: {
       email: 'contact@nicu.dev',
-      facebook: '#',
-      telegram: '#',
-      twitter: '#',
+      // facebook: '#',
+      // telegram: '#',
+      twitter: 'ecyshor',
       github: 'ecyshor',
-      rss: '',
-      vkontakte: '',
+      // rss: '',
+      // vkontakte: '',
       linkedin: 'nicu-reut',
-      instagram: '#',
-      line: '',
-      gitlab: '',
-      weibo: '',
-      codepen: '',
-      youtube: '',
-      soundcloud: ''
+      // instagram: '#',
+      // line: '',
+      // gitlab: '',
+      // weibo: '',
+      // codepen: '',
+      // youtube: '',
+      // soundcloud: ''
     }
   }
 };
