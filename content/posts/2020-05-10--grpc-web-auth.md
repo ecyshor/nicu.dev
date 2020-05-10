@@ -23,9 +23,17 @@ Use interceptors to add the `Authorization` header for each request. (Or any oth
 
 ### Grpc-web version
 
-For this to work you need [grpc-web](https://github.com/grpc/grpc-web) version >= 1.1.0 which is not yet released. If a local build of grpc web is required you can do it like [this](https://gist.github.com/ecyshor/fe26ba909158dd56199c66b26465ec5e):
+For this to work you need [grpc-web](https://github.com/grpc/grpc-web) version >= 1.1.0, which has the implementation for interceptors, which is not yet released. 
 
+<details>
+  <summary>GRPC-WEB local build!</summary>
+  
 <script src="https://gist.github.com/ecyshor/fe26ba909158dd56199c66b26465ec5e.js">\n</script>
+
+[Gist for local build](https://gist.github.com/ecyshor/fe26ba909158dd56199c66b26465ec5e)
+
+</details>
+
 
 ### Interceptor implementation
 
