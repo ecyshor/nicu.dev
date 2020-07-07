@@ -10,9 +10,7 @@ tags:
   - software
 socialImage: /media/autodraw 7_7_2020.png
 ---
-### Downside
-Gonna start with the bad side of things in scala. No union types for now so until we have scala 3 having a proper error handling system is still more verbose than wanted but it's still worthed
-Error handling in java has always been a pain. The unexpected was always ignored. Unfortunately this leaked into scala as well. Exception suck, they're hard to undestand and hard to follow, they propagate silently and especially in a future context too many things can go wrong. 
+Error handling in java has always been a pain. The unexpected was always ignored. Unfortunately this leaked into scala as well. Exception suck, they're hard to understand and hard to follow, they propagate silently and especially in a future context too many things can go wrong. 
 The examples I use will be using cats with `EitherT` but can be done in vanilla scala as well if you hate life.
 
 ### Handle failures in scala
