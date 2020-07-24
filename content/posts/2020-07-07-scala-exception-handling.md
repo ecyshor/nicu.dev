@@ -10,8 +10,9 @@ tags:
   - software
 socialImage: /media/autodraw 7_7_2020.png
 ---
-Error handling in java has always been a pain. The unexpected was always ignored. Unfortunately this leaked into scala as well. Exception suck, they're hard to understand and hard to follow, they propagate silently and especially in a future context too many things can go wrong. 
-The examples I use will be using cats with `EitherT` but can be done in vanilla scala as well if you hate life.
+Exception suck, it's impossible to know all the different exceptions that can occur in a certain context and thus having proper handling for them it's a too difficult of a task.     
+
+Using simple ADTs with Either and [cats](https://typelevel.org/cats/) for cleaner code makes our life a lot easier, but more importantly you are always aware of what can go wrong.
 
 ### Handle failures in scala
 
@@ -20,9 +21,10 @@ Let's start with the normal scala code:
 ```scala
 def doSomething(): Future[_] = ???
 ```
-The defintion of the method does not specify any failure that can happen, we always count on the happy case and don't have to think about anything else. While it's simpler to start with this is not reality, we just ignore the unknown.
 
-ADTs with EitherT from cats coming to the rescue. The code gets more complex to write as you have to define all the possible failure, but the context that you get from a failure is invaluable. This forces us to define the code paths at compile time and not be surprised by any runtime exception. 
+We know nothing about what can go wrong, other than it's possible that a `Throwable` can be thrown from somewhere, we always count on the happy case and don't have to think about anything else. While it's simpler to start with this is not reality, we just ignore the unknown.
+
+The code gets more complex to write as you have to define all the possible failure, but the context that you get from a failure is invaluable. This forces us to define the code paths at compile time and not be surprised by any runtime exception. 
 
 ```scala
 def doSomething(): EitherT[F, SomeFailure, _] = ???
@@ -32,16 +34,64 @@ case class ValidationFailure(message: String) extends SomeFailure
 case class TimeoutFailure(timeout: FiniteDuration) extends SomeFailure
 case object AlreadyDidSomething extends SomeFailure
 case class UnknownFailure(cause: Throwable) extends SomeFailure
-
-```  
-
-This forces us to treat all the failures when call the `doSomething` method, and using EitherT makes it extremly easy keep the code simple as well.
+```
 
 ### What you get
-Code where you have to think about failures, they're always there, but unlike go errors where you can actually focus on the logic you want to implement and just compose failures together handling the failure as close to the end of the functionality as possible. The time invested in writing the proper failures will greatly be worthed in the long run. 
 
+We are now aware that`SomeFailure`can occur in this context, but we can still focus on the happy path by transforming the succesfull context and send failures further up if there's no way for us to handle them at the current execution point, but unlike go errors where you can actually focus on the logic you want to implement and just compose failures together handling the failure as close to the end of the functionality as possible. The time invested in writing the proper failures will greatly be worth in the long run. 
 
-### Downside
-The main downside is that scala has no union types for now, and as `doSomething` would be of no use by itself and would normally be composed with `doSomethingElse(): EitherT[F, AnotherFailure, _]` but the problem would be that `SomeFailure` and `AnotherFailure` don't match so there is no type which can be returned from both of them (with union types we would return `EitherT[F, SomeFailure | AnotherFailure, _]`). Currently one way to fix this would be to have a common trait `trait CommonFailure` which is extended by both `SomeFailure` and `AnotherFailure` but then we lose the advantages of ADTs as any method which uses both would have to return `CommonFailure` and we would have to handle all the possible failure paths even if we know that some cases might not make sense. Another way of fixing it would be to keep on wrapping failures, so if `doSomething` calls `doSomethingElse` then we would have a case `case class SomethingElseFailure(cause: AnotherFailure)` but this adds up if it's a complex project. 
+### Composition
 
-Another downside is that every low level ADT (code that interacts with the F type directly, eg: external code that uses futures and where we make our transition from Future[T] to EitherT[Future, TFailure, T]) has to have an `case class UnknownFailure(cause: Throwable) extends OurFailure` as those futures can still have an unexpected exception thrown and we must handle it. Once we have union types this would be a lot easier to handle but would still be there.
+Different code paths
+
+```scala
+sealed trait SomeFailure
+sealed trait AnotherFailure
+
+def doSomething(): EitherT[F, SomeFailure, _] = ???
+def doSomethingElse(): EitherT[F, AnotherFailure, _] = ???
+```
+
+Now imagine we want to compose them
+
+```scala
+﻿
+//if we had union types
+def composingSomething(): EitherT[F,SomeFailure | AnotherFailure, _] = {
+  doSomething().flatMap(_ => doSomethingElse())
+}
+```
+
+It does get quite verbose with multiple composition levels but the benefits would far outweigh the downside of it.
+
+```scala
+//work around with common failure but we lose sealed benefits
+trait CommonFailure
+sealed trait SomeFailure extends CommonFailure
+sealed trait AnotherFailure extends CommonFailure
+
+def composingSomething(): EitherT[F,CommonFailure, _] = {
+  doSomething().flatMap(_ => doSomethingElse())
+}
+```
+
+In small projects this work around would work, but the big downside is that eventually a lot of sealed failures will extend the common failures, so we will have to handle some failures which actually cannot occur in that execution path. We could break them down and have more specialized common failure but those would most likely end up in high numbers, for each feature.
+
+```scala
+
+//work around with wrappers
+sealed trait ComposingFailure
+case class ComposedSomeFailure(someFailure: SomeFailure) extends ComposingFailure 
+case class ComposedAnotherFailure(anotherFailure: AnotherFailure) extends ComposingFailure 
+case class ExtraFailure(ex: Throwable) extends ComposingFailure
+
+def composingSomething(): EitherT[F, ComposingFailure, _] = {
+  doSomething().leftMap(ComposeSomeFailure).flatMap(_ => doSomethingElse().leftMap(ComposedAnotherFailure))
+}
+```
+
+This is actually the most flexible way of composing them as we can define extra failures at each step and we always handle only the cases which can occurr in our execution path.
+
+## Notes
+
+Normally you will still inteact with code which does not use this exception handling, and most likely returns simple Futures, this means that the futures can still fail with exceptions so we have to ensure that the failed future does not escape from the edge where we interact with it and instead we transform the failure into one of our failures.
