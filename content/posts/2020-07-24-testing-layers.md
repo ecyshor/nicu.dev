@@ -2,7 +2,7 @@
 template: post
 title: Testing layers
 slug: testing-unit-it-e2e-docker-compose
-draft: true
+draft: false
 date: 2020-07-24T10:18:26.297Z
 description: >-
   The value of unit tests, integration tests, end to end tests and hot to
