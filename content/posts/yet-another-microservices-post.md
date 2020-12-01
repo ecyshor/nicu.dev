@@ -36,7 +36,7 @@ Microservices do not fix any of those mistakes, they only enforces hard borders 
 
 ### Consistency is key
 
-Architecture should be standardized. When diving into a microservice you never seen before you should be able to recognize the same structural organization and same architecture as in all the other services. Namings should be consistent even across services and onboarding a new developer to a microservice should be a straighforward process as everything feels like home. As I said previosly architecture naturally evolves but a single microservice should not be left in a incosistent state between old and new, it either needs to be upgraded or it's already upgraded, this way you can easily reason about the services.
+Architecture should be standardized. When diving into a microservice you never seen before you should be able to recognize the same structural organization and same architecture as in all the other services. Namings should be consistent even across services and onboarding a new developer to a microservice should be a straighforward process as everything feels like home. As I said previously architecture naturally evolves but a single microservice should not be left in a inconsistent state between old and new, it either needs to be upgraded or it's already upgraded, this way you can easily reason about the services.
 
 ### Legoland
 
