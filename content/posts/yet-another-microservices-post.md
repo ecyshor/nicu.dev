@@ -30,9 +30,9 @@ One of the main reason for which people hate monoliths is the mess that it turns
 
 * developers are only humans, we make mistakes, and monoliths are huge collections of small mistakes which nobody has the energy to start fixing
 * architecture evolves, sometimes even naming changes during the lifetime of a project, and the bigger the project is the harder it is to ensure everything is consistent so you'll have multiple architecture versions in the same project
-* people think differently, you'll most likely implement the same thing in a different way compared to your collegue, this can be mitigated by standardizing namings and architecture but it's different to enforce, especially on big projects, and different styles slip through the cracks and with time it all becomes a big mess
+* people think differently, you'll most likely implement the same thing in a different way compared to your colleague, this can be mitigated by standardizing namings and architecture but it's difficult to enforce, especially on big projects, and different styles slip through the cracks and with time it's just confussion 
 
-Microservices do not fix any of those mistakes, they only enforces hard borders around our mistakes and around natural architecture evolution. Of course you can have microservices with different architecture "versions" but it's doable to just migrate an entire microservice at once and you can reason with the code in a single microservice, while you can't reason with huge monoliths.
+Microservices do not fix any of those mistakes, they only enforces hard borders around our mistakes and around natural architecture evolution. By limiting the scope of the service it allows for quick course correction when you realize a mistake was made in the structuring/architecture of the service. 
 
 ### Consistency is key
 
