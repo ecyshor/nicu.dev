@@ -38,18 +38,18 @@ Architecture should be standardized. When diving into a microservice you never s
 
 ### Legoland
 
-I refer to legoland as the end target for microservices.  You evolve towards legoland, you don't start with legoland. The basis of it is having a `lego` library which is the foundation of each microservice and which provides the boilerplate code, and standardizes the infrastructure code.
+I refer to legoland as the end target for microservices.  You evolve towards legoland, you don't start with legoland. The basis of it is having a `lego` library which is the foundation of each microservice and which provides the boilerplate code, standardizes the way we interact with the outside world.
 
-> Infrastracture here refers to the code infrastructure, abstractions for third party systems, defining how you read files, how you read configurations and so on...
+> Infrastructure here refers to the code infrastructure, abstractions for third party systems, defining how you read files, how you read configurations and so on...
 
 The lego library will evolve quite fast during the early days when migration to microservices, as you cover more and more pieces (do not be in a hurry to move abstraction to the lego library from the first usage, wait for at least 2-3 usages of the same abstraction in different microservices before moving it into the lego library).
 
-The lego library should also control the lifecycle of the serivce, it should provide CI/CD out of the box, it should define the way a release is done, the way the tests are run, how the service is built and so on. This also makes it a lot easier to change those things, as all you would need is an update to the lego library and it should handle everything under the hood. 
-
 As the lego library matures adding new microservices should come down to just writing the business logic for the service, having the standardized way of doing everything in the lego library, it's all about combining the pieces together to fulfill the ACs you have. Even the service itself, most of the files should be meaningful and not part of the boilerplate. A microservice should be just a collection of related functions and features which are easy to understand.
+
+The lego library should also control the lifecycle of the service, it should provide CI/CD out of the box, it should define the way a release is done, the way the tests are run, how the service is built and so on. This also makes it a lot easier to change those things, as all you would need is an update to the lego library and it should handle everything under the hood.
 
 The lego library should also be heavily modularized. If you need functionality to do a http call you should only depend on the http lego module, if you need functionality to interact with kafka you should only depend on the kafka lego module. 
 
-#### Be mindfull when adding code to the lego library
+#### Be mindful when adding code to the lego library
 
 The lego library should really be focused on adding value by providing the tools, the pieces you need to be able to focus on the business requirement, it should not contain business logic to share between services, it should not contain common models to share (if you have a user model in multiple services, each service should own it's own model).
