@@ -1,6 +1,6 @@
 ---
 template: post
-title: Yet another microservices post
+title: Microservices legoland and benefits from limited scope
 slug: microservices-benefits-and-legoland
 draft: false
 date: 2020-11-25T15:59:45.634Z
