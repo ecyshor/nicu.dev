@@ -6,11 +6,9 @@ draft: true
 date: 2020-11-25T15:59:45.634Z
 description: The road to a plug and play legoland for microservices
 ---
-I'm gonna do a short dive into some different benefits of microservices but also a hidden danger.
+I'm gonna do a short dive into some different benefits of microservices, a few downsides and what I consider the golden target for microservices - **legoland**
 
 ## Microservices
-
-We have the usual benefits and deficits but here is a small list of things that are not that obvious at first
 
 ### High cohesion for code
 
@@ -48,11 +46,10 @@ The lego library will evolve quite fast during the early days when migration to 
 
 The lego library should also control the lifecycle of the serivce, it should provide CI/CD out of the box, it should define the way a release is done, the way the tests are run, how the service is built and so on. This also makes it a lot easier to change those things, as all you would need is an update to the lego library and it should handle everything under the hood. 
 
-As the lego library matures adding new microservices should come down to just writing the business logic for the service, having the standardized way of doing everythign in the lego library, it's all about puttin the pieces together to fulfill the ACs you have. Even the service itself, most of the files should be meaningful and not part of the boilerplate.
+As the lego library matures adding new microservices should come down to just writing the business logic for the service, having the standardized way of doing everything in the lego library, it's all about combining the pieces together to fulfill the ACs you have. Even the service itself, most of the files should be meaningful and not part of the boilerplate. A microservice should be just a collection of related functions and features which are easy to understand.
 
 The lego library should also be heavily modularized. If you need functionality to do a http call you should only depend on the http lego module, if you need functionality to interact with kafka you should only depend on the kafka lego module. 
 
-#### Be mindeful when adding code to the lego library
+#### Be mindfull when adding code to the lego library
 
-The lego library should really be focused on adding value by providing the tools, the pieces you need to be able to focus on the business requirement, it should not contain business logic to share between services, it should not contain common models to share (if you have a user model in multiple services, each service should own it's own model). 
-
+The lego library should really be focused on adding value by providing the tools, the pieces you need to be able to focus on the business requirement, it should not contain business logic to share between services, it should not contain common models to share (if you have a user model in multiple services, each service should own it's own model).
