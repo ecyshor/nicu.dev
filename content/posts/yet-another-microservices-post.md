@@ -2,7 +2,7 @@
 template: post
 title: Yet another microservices post
 slug: microservices-benefits-and-legoland
-draft: true
+draft: false
 date: 2020-11-25T15:59:45.634Z
 description: The road to a plug and play legoland for microservices
 ---
