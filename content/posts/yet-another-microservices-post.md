@@ -16,7 +16,9 @@ When creating a new service, especially during the early days of moving to micro
 
 ### Knowledge transfer and ownership transparency
 
-Ideally teamwork should also be more distributed, with different people working on different services, different teams tackling different features and forces a more consistent know how between team members. Also by having relatively small microservices you can easily pinpoint business areas(microservices) which could be affected by the [bus factor](https://en.wikipedia.org/wiki/Bus_factor). 
+Ideally teamwork should also be more distributed, with different people working on different services, different teams tackling different features and forces a more consistent know how between team members. Also by having relatively small microservices you can easily pinpoint business areas (or microservices) which could be affected by the [bus factor](https://en.wikipedia.org/wiki/Bus_factor).  
+
+Each microservice should have a few owners, or a owner team. This doesn't mean that those are the only people who have knowledge of the functionality, but it clearly delegates responsability for the microservice and also simplifies the process of finding a person which has knowledge about a certain feature. You know the feature so you know the service it relies in, therefore you know the service owners and you can direct you question from the start to the right person.
 
 #### The monolithic person
 
