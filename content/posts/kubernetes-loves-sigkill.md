@@ -15,8 +15,6 @@ As seen in this [issue](https://github.com/kubernetes/kubernetes/issues/40157) a
 
 We treat containers as cattle but still it would be nice to get the opportunity to answer any in flights calls, maybe commit some offsets and ensure the shutdown state is clean. 
 
-This is especially enraging when you have a small memory leak, which might not be on your priority list to fix just yet, as it leads to OOM once a month or so, creeping up 1MB at a time and there is no way of sending a SIGTERM maybe when memory usage is at 99%, or giving it a few seconds before SIGKILL and not nuking it without a chance to shutdown.
-
-
+This is especially enraging when you have a small memory leak, which might not be on your priority list to fix just yet, as it leads to OOM once a month or so, creeping up 1MB at a time and there is no way of sending a SIGTERM before reaching OOM (maybe when memory usage is at 99%), or giving it a few seconds before SIGKILL.
 
 *PS: I know kubernetes is not directly responsible for the SIGKILL but it should be the one making our life easier*
