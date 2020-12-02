@@ -4,7 +4,7 @@ module.exports = {
   url: 'https://nicu.dev',
   pathPrefix: '/',
   title: 'Blog by Nicu Reut',
-  subtitle: 'Rants, problems and solutions.',
+  subtitle: 'Rants, thoughts, and opinions.',
   copyright: '© For everybody.',
   disqusShortname: '',
   postsPerPage: 8,
@@ -17,7 +17,7 @@ module.exports = {
     },
     {
       label: 'About me',
-      path: '/pages/about'
+      path: '/pages/me'
     },
     {
       label: 'Contact me',
