@@ -5,7 +5,7 @@ slug: testing-unit-it-e2e-docker-compose
 draft: false
 date: 2020-07-24T10:18:26.297Z
 description: >-
-  The value of unit tests, integration tests, end to end tests and hot to
+  The value of unit tests, integration tests, end to end tests and how to
   simplify them using docker-compose for proper execution.
 category: software
 tags:
