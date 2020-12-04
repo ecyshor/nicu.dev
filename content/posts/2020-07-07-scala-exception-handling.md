@@ -7,7 +7,7 @@ date: 2020-07-07T20:15:29.624Z
 description: Easy error handling in scala
 category: software
 tags:
-  - software
+  - scala
 socialImage: /media/autodraw 7_7_2020.png
 ---
 Exception suck, it's impossible to know all the different exceptions that can occur in a certain context and thus having proper handling for them it's a too difficult of a task.     
