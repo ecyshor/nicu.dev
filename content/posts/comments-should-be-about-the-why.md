@@ -5,6 +5,7 @@ slug: why-we-comment
 draft: false
 date: 2020-12-01T17:58:11.812Z
 description: 'It''s all about the why, not about the how'
+category: Thoughts
 ---
 At the start of my career I was really triggered by code comments. Reading `Clean Code` over and over made comments stand out like a wort in every file.
 
