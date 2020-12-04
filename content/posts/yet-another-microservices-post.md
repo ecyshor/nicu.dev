@@ -5,6 +5,7 @@ slug: microservices-benefits-and-legoland
 draft: false
 date: 2020-11-25T15:59:45.634Z
 description: The road to a plug and play legoland for microservices
+category: Thoughts
 ---
 I'm gonna do a short dive into some different benefits of microservices, a few downsides and what I consider the golden target for microservices - **legoland**
 
