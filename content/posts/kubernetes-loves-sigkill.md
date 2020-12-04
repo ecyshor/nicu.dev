@@ -5,7 +5,7 @@ slug: kubernetes-loves-sigkill
 draft: false
 date: 2020-12-02T09:15:27.231Z
 description: OOMKilled triggers SIGKILL without a way of sending SIGTERM
-category: Software
+category: Rant
 tags:
   - rant
 ---
