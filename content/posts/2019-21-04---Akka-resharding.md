@@ -1,15 +1,15 @@
 ---
+template: post
 title: Akka sharding entity state handover
-date: "2019-04-21T22:40:32.169Z"
-template: "post"
+slug: akka-resharding
 draft: false
-slug: "akka-resharding"
-category: "Software"
+date: '2019-04-21T22:40:32.169Z'
+description: >-
+  Akka sharding state handover during cluster restarts/resharding to reduce time
+  needed for the entities to serve responses
+category: Software
 tags:
-  - "Akka"
-  - "Distributed systems"
-  - "Sharding"
-description: "Akka sharding state handover during cluster restarts/resharding to reduce time needed for the entities to serve responses"
+  - Scala
 ---
 
 ## Introduction
