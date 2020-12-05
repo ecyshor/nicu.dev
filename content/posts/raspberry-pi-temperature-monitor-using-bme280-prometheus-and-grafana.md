@@ -43,11 +43,11 @@ For that I've written a simple http service, [scaap](https://github.com/ecyshor/
 
 The scaap configuration:
 
- <script src="https://gist-it.appspot.com/https://raw.githubusercontent.com/ecyshor/pi-temperature-monitor/main/scaap.toml"></script>
+ <script src="https://gist-it.appspot.com/https://github.com/ecyshor/pi-temperature-monitor/blob/main/scaap.toml"></script>
 
 Required dependencies for the script are installed in the scaap runtime init script:
 
- <script src="https://gist-it.appspot.com/https://raw.githubusercontent.com/ecyshor/pi-temperature-monitor/main/init-runtime.sh"></script>
+ <script src="https://gist-it.appspot.com/https://github.com/ecyshor/pi-temperature-monitor/blob/main/init-runtime.sh"></script>
 
 One last note, the scripts runs inside the container so this means that the i2c device has to be mapped into the docker container. For my usecase [this is where I map the device](https://github.com/ecyshor/pi-temperature-monitor/blob/main/docker-compose.yml#L37) 
 
