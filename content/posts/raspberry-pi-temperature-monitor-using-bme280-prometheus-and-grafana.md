@@ -42,8 +42,6 @@ In the script I'm using the [bme280 library](https://github.com/rm-hull/bme280) 
 
  <script src="https://gist-it.appspot.com/https://github.com/ecyshor/pi-temperature-monitor/blob/main/read-temp.py"></script>
 
-In the script I'm using the [bme280 library](https://github.com/rm-hull/bme280) to easily read the sensor output and then manually format it for prometheus.
-
 #### HTTP output from script
 
 For that I've written a simple http service, [scaap](https://github.com/ecyshor/scaap/) which can be configured to run a script and return the output for each http request. This means each time prometheus scrapes our service it will execute the python script to read the temperature.
@@ -56,15 +54,13 @@ Required dependencies for the script are installed in the scaap runtime init scr
 
  <script src="https://gist-it.appspot.com/https://github.com/ecyshor/pi-temperature-monitor/blob/main/init-runtime.sh"></script>
 
-One last note, the scripts runs inside the container so this means that the i2c device has to be mapped into the docker container. For my usecase [this is where I map the device](https://github.com/ecyshor/pi-temperature-monitor/blob/main/docker-compose.yml#L37) 
+The scripts runs inside the container so this means that the i2c device has to be mapped into the docker container. For my usecase [this is where I map the device](https://github.com/ecyshor/pi-temperature-monitor/blob/main/docker-compose.yml#L37) 
 
 ### Docker setup
 
 This is all we need to be able to configure the docker-compose file
 
-﻿
  <script src="https://gist-it.appspot.com/https://github.com/ecyshor/pi-temperature-monitor/blob/main/docker-compose.yml"></script>
-
 
 ### Access
 
