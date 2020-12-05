@@ -66,9 +66,8 @@ Once you start everything using `docker-compose up` you can access grafana using
 
 The dashboard is not automatically provisioned but you can easily import it using following json
 
-# A collapsible section with markdown
 <details>
-  <summary>Show json</summary>
+  <summary>Show dashboard json for import</summary>
   
 <script src="https://gist.github.com/ecyshor/d97d520fbfb161a9f7c7370528ed9c87.js"></script>
 
