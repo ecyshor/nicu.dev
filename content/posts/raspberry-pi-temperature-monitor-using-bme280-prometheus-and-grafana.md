@@ -33,7 +33,7 @@ After connecting the sensor check that it's connected using `sudo i2cdetect -y 1
 After the sensor is there it's time to read the temperature in a proper way. We plan on using prometheus so the readings have to be in a format which can be understood by prometheus.
 For that I've written a simple http service, [scaap](https://github.com/ecyshor/scaap/) which can be configured to run a script and return the output for each http request. This means each time prometheus scrapes our service it will execute the python script to read the temperature.
 
- <script src="https://raw.githubusercontent.com/ecyshor/pi-temperature-monitor/main/read-temp.py"></script>
+ <script src="http://gist-it.appspot.com/https://raw.githubusercontent.com/ecyshor/pi-temperature-monitor/main/read-temp.py"></script>
 
 In the script I'm using the [bme280 library](https://github.com/rm-hull/bme280) to easily read the sensor output and then manually format it for prometheus.
 
