@@ -60,6 +60,12 @@ This is all we need to be able to configure the docker-compose file
 
  <script src="https://gist-it.appspot.com/https://github.com/ecyshor/pi-temperature-monitor/blob/main/docker-compose.yml"></script>
 
+#### Prometheus config
+
+Prometheus is configured automatically to call the scrip through the http service every 15s:
+
+ <script src="https://gist-it.appspot.com/https://github.com/ecyshor/pi-temperature-monitor/blob/main/prometheus/prometheus.yml"></script>
+
 ### Access
 
 Once you start everything using `docker-compose up` you can access grafana using `localhost:3000`
