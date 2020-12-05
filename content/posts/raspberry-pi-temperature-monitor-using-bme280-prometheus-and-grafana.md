@@ -63,6 +63,6 @@ This is all we need to be able to configure the docker-compose file
 
 Once you start everything using `docker-compose up` you can access grafana using `localhost:3000`
 
-![Grafana](/media/grafana.jpg)
+![Grafana](/media/Webp.net-resizeimage.jpg)
 
 
