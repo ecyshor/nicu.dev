@@ -64,6 +64,12 @@ This is all we need to be able to configure the docker-compose file
 
 Once you start everything using `docker-compose up` you can access grafana using `localhost:3000`
 
-The dashboard is not automatically provisioned but you can easily import it using the following script:
+The dashboard is not automatically provisioned but you can easily import it using following json
 
+# A collapsible section with markdown
+<details>
+  <summary>Show json</summary>
+  
 <script src="https://gist.github.com/ecyshor/d97d520fbfb161a9f7c7370528ed9c87.js"></script>
+
+</details>
