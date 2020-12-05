@@ -4,7 +4,9 @@ title: Configure grpc-web typescript authentication
 slug: typescript-grpc-web-auth-interceptor
 draft: false
 date: 2020-05-10T15:52:44.607Z
-description: Add the Authorization header for every grpc-web call in typescript using interceptors
+description: >-
+  Add the Authorization header for every grpc-web call in typescript using
+  interceptors
 category: how-to
 tags:
   - grpc
@@ -23,17 +25,7 @@ Use interceptors to add the `Authorization` header for each request. (Or any oth
 
 ### Grpc-web version
 
-For this to work you need [grpc-web](https://github.com/grpc/grpc-web) version >= 1.1.0, which has the implementation for interceptors, which is not yet released. 
-
-<details>
-  <summary>GRPC-WEB local build!</summary>
-  
-<script src="https://gist.github.com/ecyshor/fe26ba909158dd56199c66b26465ec5e.js">\n</script>
-
-[Gist for local build](https://gist.github.com/ecyshor/fe26ba909158dd56199c66b26465ec5e)
-
-</details>
-
+For this to work you need [grpc-web](https://github.com/grpc/grpc-web) version `>= 1.1.0`. Latest version is `1.2.1`
 
 ### Interceptor implementation
 
