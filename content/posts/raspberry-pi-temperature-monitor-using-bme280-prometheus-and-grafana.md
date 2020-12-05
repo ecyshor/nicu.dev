@@ -1,7 +1,7 @@
 ---
 template: post
 title: 'Raspberry pi temperature monitor using bme280, prometheus and grafana'
-slug: raspberry-pi-temperature monitor
+slug: raspberry-pi-temperature-monitoring
 draft: false
 date: 2020-12-05T17:52:01.712Z
 description: >-
