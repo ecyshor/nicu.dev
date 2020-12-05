@@ -10,11 +10,17 @@ description: >-
 category: HoPjects
 socialImage: /media/Webp.net-resizeimage.jpg
 ---
+![Grafana](/media/Webp.net-resizeimage.jpg)
+
 ## What we'll do
 
-Short walk-through for building a home temperature, humidy and pressure sensor by attaching a BME280 sensor to a raspberry pi, using prometheus to build a timeseries for temperature, humidy and pressure and grafana to visualize it in a nice dashboard.  All the services are running as docker containers using docker-compose.
+Short walk-through for building a home temperature, humidy and pressure sensor by attaching a BME280 sensor to a raspberry pi, using prometheus to build a timeseries for temperature, humidy and pressure and grafana to visualize it in a nice dashboard.  
+
+All the services are running as docker containers using docker-compose.
 
 Running project: [on github](https://github.com/ecyshor/pi-temperature-monitor)
+
+Dashboard snapshot: [snapshot](https://snapshot.raintank.io/dashboard/snapshot/yq6Zq5gh3URdh0LC7p0Wo5l0QGRToEgb)
 
 ### The sensor
 
@@ -25,8 +31,6 @@ First of all, depending on what you're using you have to make sure the i2c inter
 To connect the sensors and be able to use it on the raspberry pi I've followed this [tutorial](https://www.raspberrypi-spy.co.uk/2016/07/using-bme280-i2c-temperature-pressure-sensor-in-python/). The script I'm using is different though, we'll get to that later.
 
 After connecting the sensor check that it's connected using `sudo i2cdetect -y 1`.
-
-
 
 ### The script
 
@@ -66,6 +70,10 @@ This is all we need to be able to configure the docker-compose file
 
 Once you start everything using `docker-compose up` you can access grafana using `localhost:3000`
 
-![Grafana](/media/Webp.net-resizeimage.jpg)
+The dashboard is not automatically provisioned but you can easily import it using the following script:
+
+<script src="https://gist.github.com/ecyshor/d97d520fbfb161a9f7c7370528ed9c87.js"></script>
+
+
 
 
