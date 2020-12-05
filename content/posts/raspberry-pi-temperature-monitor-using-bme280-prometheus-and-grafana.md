@@ -8,7 +8,7 @@ description: >-
   Attaching a BME280 sensor to raspberry pi, exposing the data as a http server,
   using prometheus to scrape it and grafana to visualize it 
 category: HoPjects
-socialImage: /media/grafana.png
+socialImage: /media/Webp.net-resizeimage.jpg
 ---
 ## What we'll do
 
@@ -63,5 +63,6 @@ This is all we need to be able to configure the docker-compose file
 
 Once you start everything using `docker-compose up` you can access grafana using `localhost:3000`
 
+![Grafana](/media/grafana.jpg)
 
 
