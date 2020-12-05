@@ -2,7 +2,7 @@
 template: post
 title: 'Raspberry pi temperature monitor using bme280, prometheus and grafana'
 slug: raspberry-pi-temperature monitor
-draft: true
+draft: false
 date: 2020-12-05T17:52:01.712Z
 description: >-
   Attaching a BME280 sensor to raspberry pi, exposing the data as a http server,
