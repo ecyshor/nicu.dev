@@ -3,7 +3,6 @@ template: page
 title: About me
 slug: me
 draft: false
-socialImage: /media/swiss-alps.jpg
 ---
 Software engineer living in Zürich, Switzerland.
 

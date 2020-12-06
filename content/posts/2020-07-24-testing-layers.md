@@ -10,7 +10,6 @@ description: >-
 category: software
 tags:
   - testing
-socialImage: /media/containers-1209079_960_720.jpg
 ---
 ## Testing layers
 

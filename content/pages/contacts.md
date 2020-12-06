@@ -3,6 +3,5 @@ template: page
 title: Contact me
 slug: contact
 draft: false
-socialImage: "/media/swiss-alps.jpg"
 ---
-If you need me you can contact me at contact@nicu.dev
+You can contact me at <a href="mailto:contact@nicu.dev">contact@nicu.dev</a>, I would gladely accept any feedback or question.

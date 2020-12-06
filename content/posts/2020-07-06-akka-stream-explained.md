@@ -8,7 +8,6 @@ description: How do akka streams work and how do different pieces work together
 category: software
 tags:
   - akka
-socialImage: /media/autodraw 7_6_2020.png
 ---
 ## Akka streams
 
