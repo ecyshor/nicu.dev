@@ -59,7 +59,7 @@
     "react-disqus-comments": "^1.4.0",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
-    "gatsby-remark-embed-script": "file:./plugins/gatsby-remark-embed-script"
+    "gatsby-remark-embed-url": "file:./plugins/gatsby-remark-embed-url"
   },
   "devDependencies": {
     "@babel/core": "7.12.9",
