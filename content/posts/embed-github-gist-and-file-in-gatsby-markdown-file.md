@@ -2,7 +2,7 @@
 template: post
 title: Embed github gist and file in gatsby markdown file
 slug: gatsby-embed-url
-draft: true
+draft: false
 date: 2020-12-06T22:36:46.157Z
 description: How to embed code from a URL into the Gatsby generated static site
 category: Software
