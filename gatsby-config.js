@@ -102,6 +102,7 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          'gatsby-remark-embed-script',
           {
             resolve: 'gatsby-remark-katex',
             options: {
