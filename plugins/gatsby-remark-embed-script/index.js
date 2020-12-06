@@ -12,11 +12,36 @@ module.exports = async ({ markdownAST }, pluginOptions) => {
     if(linkNode.type !== 'link') return
     const lang = node.children[2].value.trim()
     console.log("Fetching url for code block: " + linkNode.url)
-    node.type = "code"
-    node.children = undefined
-    node.value = linkNode.url.trim()
-    node.lang = lang
-    nodes.push(node)
+      let sourceUrl = linkNode.url.trim();
+      let codeUrl = sourceUrl;
+      if(codeUrl.toLowerCase().startsWith("https://github.com")) {
+        codeUrl = codeUrl.replace("https://github.com", "https://raw.githubusercontent.com").replace("blob/", "")
+      }
+      if(codeUrl.toLowerCase().startsWith("https://gist.githubusercontent.com")) {
+        const paths = codeUrl.replace("https://gist.githubusercontent.com/", "").split("/")
+        sourceUrl = "https://gist.github.com/" +  paths[0] + "/" + paths[1] + "#" + paths[4]
+      }
+      const codeNode = {
+          type: "code",
+          value: codeUrl,
+          lang: lang
+      };
+    node.children = [{
+        type: "html",
+        value: `
+        <p style="color: rebeccapurple;font-style: italic;font-weight: lighter; margin-bottom:0;margin-top:0">
+          Embedded from <a href='${sourceUrl}'>${sourceUrl}</a>
+        </p>
+      `
+    },codeNode, {
+        type: "html",
+        value: `
+        <p style="color: rebeccapurple;font-style: italic;font-weight: lighter; margin-top:0; font-size: x-small">
+          Check the <a href='${sourceUrl}'>original code here</a>
+        </p>
+      `
+    }]
+    nodes.push(codeNode)
   })
   await Promise.all(nodes.map(async node => {
     node.value = await fetch(node.value)

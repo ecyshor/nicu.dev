@@ -38,7 +38,7 @@ After the sensor is there it's time to read the temperature in a proper way. We 
 
 In the script I'm using the [bme280 library](https://github.com/rm-hull/bme280) to easily read the sensor output and then manually format it for prometheus.
 
-embed-url-code https://raw.githubusercontent.com/ecyshor/pi-temperature-monitor/main/read-temp.py python 
+embed-url-code https://github.com/ecyshor/pi-temperature-monitor/blob/main/read-temp.py python 
 
 #### HTTP output from script
 
@@ -46,11 +46,11 @@ For that I've written a simple http service, [scaap](https://github.com/ecyshor/
 
 The scaap configuration:
 
- embed-url-code https://raw.githubusercontent.com/ecyshor/pi-temperature-monitor/main/scaap.toml toml
+ embed-url-code https://github.com/ecyshor/pi-temperature-monitor/blob/main/scaap.toml toml
 
 Required dependencies for the script are installed in the scaap runtime init script:
 
-embed-url-code https://raw.githubusercontent.com/ecyshor/pi-temperature-monitor/main/init-runtime.sh bash
+embed-url-code https://github.com/ecyshor/pi-temperature-monitor/blob/main/init-runtime.sh bash
 
 The scripts runs inside the container so this means that the i2c device has to be mapped into the docker container. For my usecase [this is where I map the device](https://github.com/ecyshor/pi-temperature-monitor/blob/main/docker-compose.yml#L37) 
 
@@ -58,14 +58,14 @@ The scripts runs inside the container so this means that the i2c device has to b
 
 This is all we need to be able to configure the docker-compose file
 
-embed-url-code https://raw.githubusercontent.com/ecyshor/pi-temperature-monitor/main/docker-compose.yml yaml
+embed-url-code https://github.com/ecyshor/pi-temperature-monitor/blob/main/docker-compose.yml yaml
 
 #### Prometheus config
 
 Prometheus is configured automatically to call the scrip through the http service every 15s:
 
-embed-url-code https://raw.githubusercontent.com/ecyshor/pi-temperature-monitor/main/prometheus/prometheus.yml yaml
- 
+embed-url-code https://github.com/ecyshor/pi-temperature-monitor/blob/main/prometheus/prometheus.yml yaml
+
 ### Access
 
 Once you start everything using `docker-compose up` you can access grafana using `localhost:3000`
