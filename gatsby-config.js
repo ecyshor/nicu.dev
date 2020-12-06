@@ -114,7 +114,6 @@ module.exports = {
             options: {
               maxWidth: 960,
               withWebp: true,
-              ignoreFileExtensions: [],
             }
           },
           {
@@ -190,7 +189,7 @@ module.exports = {
         icon: 'static/photo.jpg'
       },
     },
-    'gatsby-plugin-offline',
+    'gatsby-plugin-remove-serviceworker',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-react-helmet',
     {

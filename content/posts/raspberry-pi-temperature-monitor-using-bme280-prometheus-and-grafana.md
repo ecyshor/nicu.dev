@@ -8,9 +8,9 @@ description: >-
   Attaching a BME280 sensor to raspberry pi, exposing the data as a http server,
   using prometheus to scrape it and grafana to visualize it 
 category: HoPjects
-socialImage: /media/Webp.net-resizeimage.jpg
+socialImage: /media/grafana-temperature.jpg
 ---
-![Grafana](/media/Webp.net-resizeimage.jpg)
+![Grafana](/media/grafana-temperature.jpg)
 
 ## What we'll do
 
