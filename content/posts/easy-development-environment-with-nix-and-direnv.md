@@ -2,7 +2,7 @@
 template: post
 title: Easy development environment with nix and direnv
 slug: dirnev-nix-shell
-draft: true
+draft: false
 date: 2023-02-12T20:17:10.881Z
 description: Easy starter for nix integration using only nix-shell for projects
 tags:
