@@ -32,7 +32,7 @@ module.exports = {
       email: 'contact@nicu.dev',
       // facebook: '#',
       // telegram: '#',
-      twitter: 'ecyshor',
+      // twitter: 'ecyshor',
       github: 'ecyshor',
       // rss: '',
       // vkontakte: '',
