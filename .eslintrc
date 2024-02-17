@@ -1,65 +1,81 @@
 {
-    "parser": "babel-eslint",
-    "extends": "airbnb-base",
-    "env": {
-      "browser": true,
-      "node": true,
-      "es6": true,
-      "jest/globals": true
-    },
-    "plugins": [
-        "react",
-        "jest",
-        "jsx-a11y",
-        "import"
+  "env": {
+    "node": true,
+    "browser": true,
+    "jasmine": true,
+    "jest/globals": true
+  },
+  "extends": [
+    "plugin:import/typescript",
+    "plugin:import/errors",
+    "airbnb-typescript",
+    "@alxshelepenok/eslint-config",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "import",
+    "react",
+    "jest",
+    "@typescript-eslint",
+    "simple-import-sort"
+  ],
+  "rules": {
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*.test.ts",
+          "**/*.test.tsx",
+          "**/internal/**/*.ts",
+          "**/src/utils/test-utils/*.ts",
+          "**/src/utils/test-utils/*.tsx"
+        ]
+      }
     ],
-    "globals": {
-        "graphql": true
-    },
-    "rules": {
-      "comma-dangle": 0,
-      "import/imports-first": 0,
-      "global-require": 0,
-      "class-methods-use-this": 0,
-      "arrow-body-style": [
-        2,
-        "as-needed"
-      ],
-      "arrow-parens": [
-        "error",
-        "always"
-      ],
-      "import/no-extraneous-dependencies": [
-        "error",
-        {
-          "devDependencies": true
-        }
-      ],
-      "no-debugger": 0,
-      "dot-notation": 0,
-      "no-console": 0,
-      "new-cap": 0,
-      "strict": 0,
-      "no-param-reassign": [
-        "error",
-        {
-          "props": false
-        }
-      ],
-      "no-underscore-dangle": 0,
-      "no-use-before-define": 0,
-      "eol-last": 0,
-      "no-shadow": 0,
-      "quotes": [
-        2,
-        "single"
-      ],
-      "jsx-quotes": [
-        0,
-        "prefer-single"
-      ],
-      "react/jsx-no-undef": 1,
-      "react/jsx-uses-react": 1,
-      "react/jsx-uses-vars": 1
+    "import/order": ["off"],
+    "import/no-internal-modules": ["off"],
+    "import/no-named-as-default": ["off"],
+    "import/prefer-default-export": ["off"],
+    "sort-keys": ["off"],
+    "camelcase": ["off"],
+    "arrow-body-style": ["error", "as-needed"],
+    "comma-dangle": ["error", "always-multiline"],
+    "sort-imports": ["off"],
+    "no-restricted-globals": ["off"],
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
+    "@typescript-eslint/no-unused-vars": ["off"],
+    "@typescript-eslint/no-use-before-define": ["off"],
+    "@typescript-eslint/quotes": ["error", "double"],
+    "@typescript-eslint/naming-convention": ["error", {
+      "format": ["camelCase", "UPPER_CASE", "snake_case", "PascalCase"],
+      "leadingUnderscore": "allow",
+      "selector": "parameter"
+    }],
+    "react/static-property-placement": ["off"],
+    "react/prop-types": ["off"],
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          ["^(react|path)"],
+          ["^\\u0000"],
+          ["^@?\\w"],
+          ["^[^. ]"],
+          ["^\\."],
+          ["^(images|!!raw-loader)"],
+          ["w*(w*.*css)"]
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
     }
+  }
 }
