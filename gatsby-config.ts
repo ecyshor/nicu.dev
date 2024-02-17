@@ -7,20 +7,39 @@ export default {
   pathPrefix: config.pathPrefix,
   siteMetadata: {
     url: config.url,
-    menu: config.menu,
     title: config.title,
-    author: config.author,
     subtitle: config.subtitle,
     copyright: config.copyright,
-    postsLimit: config.postsLimit,
     disqusShortname: config.disqusShortname,
+    menu: config.menu,
+    author: config.author,
   },
   plugins: [
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "content",
-        path: path.resolve("content"),
+        path: `${__dirname}/static/media`,
+        name: "media", },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "css",
+        path: `${__dirname}/static/css`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "assets",
+        path: `${__dirname}/static`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/content`,
+        name: "pages",
       },
     },
     {
@@ -97,6 +116,13 @@ export default {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
+          "gatsby-remark-embed-url",
+          {
+            resolve: "gatsby-remark-katex",
+            options: {
+              strict: "ignore",
+            },
+          },
           {
             resolve: "gatsby-remark-images",
             options: {
@@ -118,13 +144,11 @@ export default {
     },
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
+    "gatsby-plugin-netlify",
     {
-      resolve: "gatsby-plugin-google-gtag",
+      resolve: "gatsby-plugin-decap-cms",
       options: {
-        trackingIds: [config.googleAnalyticsId],
-        pluginConfig: {
-          head: true,
-        },
+        modulePath: `${__dirname}/src/cms/cms.js`,
       },
     },
     {
@@ -157,44 +181,11 @@ export default {
         short_name: config.title,
         theme_color: "hsl(31, 92%, 62%)",
         background_color: "hsl(0, 0%, 100%)",
-        icon: "content/photo.jpg",
         display: "standalone",
-        start_url: "/",
+        icon: "static/photo.jpg",
       },
     },
-    {
-      resolve: "gatsby-plugin-offline",
-      options: {
-        workboxConfig: {
-          runtimeCaching: [
-            {
-              urlPattern: /(\.js$|\.css$|[^:]static\/)/,
-              handler: "CacheFirst",
-            },
-            {
-              urlPattern: /^https?:.*\/page-data\/.*\.json/,
-              handler: "StaleWhileRevalidate",
-            },
-            {
-              urlPattern:
-                /^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
-              handler: "StaleWhileRevalidate",
-            },
-            {
-              urlPattern: /^https?:\/\/fonts\.googleapis\.com\/css/,
-              handler: "StaleWhileRevalidate",
-            },
-          ],
-        },
-      },
-    },
-    {
-      resolve: "@sentry/gatsby",
-      options: {
-        dsn: process.env.SENTRY_DSN,
-        tracesSampleRate: 1,
-      },
-    },
+    "gatsby-plugin-remove-serviceworker",
     "gatsby-plugin-image",
     "gatsby-plugin-catch-links",
     "gatsby-plugin-optimize-svgs",
