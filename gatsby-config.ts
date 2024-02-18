@@ -98,12 +98,12 @@ export default {
       options: {
         plugins: [
           "gatsby-remark-embed-url",
-          // {
-          //   resolve: "gatsby-remark-katex",
-          //   options: {
-          //     strict: "ignore",
-          //   },
-          // },
+          {
+            resolve: "gatsby-remark-katex",
+            options: {
+              strict: "ignore",
+            },
+          },
           {
             resolve: "gatsby-remark-images",
             options: {
@@ -160,6 +160,13 @@ export default {
         icon: "content/photo.jpg",
         start_url: "/",
       },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        sitemap: 'https://nicu.dev/sitemap/sitemap-0.xml',
+        policy: [{userAgent: '*', allow: '/'}]
+      }
     },
     "gatsby-plugin-remove-serviceworker",
     "gatsby-plugin-image",
