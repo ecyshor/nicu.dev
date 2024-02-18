@@ -164,7 +164,8 @@ export default {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        sitemap: 'https://nicu.dev/sitemap/sitemap-0.xml',
+        host: config.url,
+        sitemap: `${config.url}/sitemap/sitemap-0.xml`,
         policy: [{userAgent: '*', allow: '/'}]
       }
     },
