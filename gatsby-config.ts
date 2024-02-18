@@ -13,6 +13,7 @@ export default {
     disqusShortname: config.disqusShortname,
     menu: config.menu,
     author: config.author,
+    postsLimit: config.postsPerPage
   },
   plugins: [
     {
