@@ -18,28 +18,8 @@ export default {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/static/media`,
-        name: "media", },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "css",
-        path: `${__dirname}/static/css`,
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "assets",
-        path: `${__dirname}/static`,
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/content`,
-        name: "pages",
+        name: "content",
+        path: path.resolve("content"),
       },
     },
     {
@@ -116,13 +96,13 @@ export default {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
-          "gatsby-remark-embed-url",
-          {
-            resolve: "gatsby-remark-katex",
-            options: {
-              strict: "ignore",
-            },
-          },
+          // "gatsby-remark-embed-url",
+          // {
+          //   resolve: "gatsby-remark-katex",
+          //   options: {
+          //     strict: "ignore",
+          //   },
+          // },
           {
             resolve: "gatsby-remark-images",
             options: {
@@ -142,15 +122,9 @@ export default {
         ],
       },
     },
+    "gatsby-plugin-netlify",
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
-    "gatsby-plugin-netlify",
-    {
-      resolve: "gatsby-plugin-decap-cms",
-      options: {
-        modulePath: `${__dirname}/src/cms/cms.js`,
-      },
-    },
     {
       resolve: "gatsby-plugin-sitemap",
       options: {
@@ -182,7 +156,8 @@ export default {
         theme_color: "hsl(31, 92%, 62%)",
         background_color: "hsl(0, 0%, 100%)",
         display: "standalone",
-        icon: "static/photo.jpg",
+        icon: "content/photo.jpg",
+        start_url: "/",
       },
     },
     "gatsby-plugin-remove-serviceworker",
