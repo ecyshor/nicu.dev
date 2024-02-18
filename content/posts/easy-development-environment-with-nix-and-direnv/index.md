@@ -68,15 +68,12 @@ In the folder of the project, where the `nix` directory is found add the direnv 
 ```
 #!/usr/bin/env bash
 
-if ! has nix_direnv_version || ! nix_direnv_version 2.2.1; then
-  source_url "https://raw.githubusercontent.com/nix-community/nix-direnv/2.2.1/direnvrc" "sha256-zelF0vLbEl5uaqrfIzbgNzJWGmLzCmYAkInj/LNxvKs="
-fi
+# Reload if the sources file changes
+watch_file nix/sources.nix
 
+# This will watch the shell.nix automatically and reload on changes
 use nix nix/shell.nix
-nix_direnv_watch_file nix/sources.nix
 ```
-
-This loads the <https://github.com/nix-community/nix-direnv> support for nix in direnv.
 
 ### Done
 
