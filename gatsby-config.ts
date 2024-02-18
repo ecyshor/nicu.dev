@@ -97,7 +97,7 @@ export default {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
-          // "gatsby-remark-embed-url",
+          "gatsby-remark-embed-url",
           // {
           //   resolve: "gatsby-remark-katex",
           //   options: {
